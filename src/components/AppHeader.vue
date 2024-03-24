@@ -1,17 +1,12 @@
 <script setup lang="ts">
+import { watchEffect, ref } from "vue";
+import { useBreakpoints } from "../composables";
 import IconPhone from "./icons/Phone.vue";
 import IconLogo from "./icons/Logo.vue";
 import IconMenu from "./icons/Menu.vue";
-import { useBreakpoints } from "@vueuse/core";
 import AppSidebar from "./AppSidebar.vue";
-import { watchEffect, ref } from "vue";
 
-const breakpoints = useBreakpoints({
-  sm: 576,
-  md: 768,
-  lg: 997,
-  xl: 1200,
-});
+const { breakpoints } = useBreakpoints();
 
 const isNavbarOpen = ref(false);
 

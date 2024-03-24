@@ -1,19 +1,13 @@
 <script setup lang="ts">
-import { useBreakpoints } from "@vueuse/core";
 import { computed, ref } from "vue";
-import { useAchievements, useFormValues } from "../composables";
+import { useAchievements, useFormValues, useBreakpoints } from "../composables";
 import AppAchievement from "./AppAchievement.vue";
 import AppForm from "./AppForm.vue";
 import AppSidebar from "./AppSidebar.vue";
 import AppSubmission from "./AppSubmission.vue";
 import ArrowIcon from "./icons/Arrow.vue";
 
-const breakpoints = useBreakpoints({
-  sm: 576,
-  md: 768,
-  lg: 997,
-  xl: 1200,
-});
+const { breakpoints } = useBreakpoints();
 
 const isOpen = ref(false);
 const { isSubmitted } = useFormValues();
