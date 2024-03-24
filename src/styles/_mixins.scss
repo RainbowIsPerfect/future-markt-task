@@ -1,0 +1,110 @@
+@use "./variables" as v;
+
+@mixin reset {
+  *,
+  ::after,
+  ::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    line-height: 1.5;
+  }
+
+  input,
+  button,
+  textarea,
+  select {
+    font: inherit;
+    color: inherit;
+    border: none;
+  }
+
+  ol,
+  ul {
+    list-style: none;
+  }
+
+  a,
+  a:visited {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  button {
+    cursor: pointer;
+  }
+}
+
+@mixin flex($direction: false, $align: false, $justify: false) {
+  display: flex;
+  @if ($direction) {
+    flex-direction: $direction;
+  }
+  @if ($align) {
+    align-items: $align;
+  }
+  @if ($justify) {
+    justify-content: $justify;
+  }
+}
+
+@mixin position(
+  $pos: absolute,
+  $top: false,
+  $right: false,
+  $bottom: false,
+  $left: false,
+  $z: false
+) {
+  position: $pos;
+  @if ($top) {
+    top: $top;
+  }
+  @if ($right) {
+    right: $right;
+  }
+  @if ($bottom) {
+    bottom: $bottom;
+  }
+  @if ($left) {
+    left: $left;
+  }
+  @if ($z) {
+    z-index: $z;
+  }
+}
+
+@mixin pseudo-element(
+  $content: "",
+  $pos: absolute,
+  $top: false,
+  $right: false,
+  $bottom: false,
+  $left: false,
+  $z: false
+) {
+  content: $content;
+  @include position($pos, $top, $right, $bottom, $left, $z);
+  @content;
+}
+
+@mixin font($ff: false, $fw: false, $fs: false) {
+  @if ($ff) {
+    font-family: $ff;
+  }
+  @if ($fs) {
+    font-size: $fw;
+  }
+  @if ($fw) {
+    font-weight: $fs;
+  }
+}
+
+@mixin breakpoint($breakpoint) {
+  @media only screen and (max-width: map-get(v.$breakpoints, $breakpoint)) {
+    @content;
+  }
+}

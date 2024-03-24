@@ -1,0 +1,48 @@
+@use "sass:map";
+
+$colors: (
+  main: #133457,
+  secondary: #07305d,
+  bg: #133457de,
+  elements: #0b3461,
+  popup: #0f1d45,
+  text: #fff,
+  border: #ffffff14,
+  gradient: #5e9de433,
+);
+
+$font-sizes: (
+  4xl: 65px,
+  3xl: 50px,
+  2xl: 40px,
+  xl: 20px,
+  lg: 18px,
+  base: 16px,
+  sm: 14px,
+  xs: 12px,
+  xxs: 10px,
+);
+
+$font-weights: (
+  regular: 400,
+  semibold: 600,
+);
+
+$font-families: (
+  raleway: (
+    "Raleway",
+    sans-serif,
+  ),
+  montserrat: (
+    "Montserrat",
+    sans-serif,
+  ),
+);
+
+$breakpoints: (
+  sm: 576px,
+  md: 768px,
+  lg: 997px,
+  xl: 1200px,
+  2xl: 1300px,
+);

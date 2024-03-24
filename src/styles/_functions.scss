@@ -1,0 +1,19 @@
+@function toCSSVar($prefix, $name) {
+  @return var(--#{$prefix}-#{$name});
+}
+
+@function clr($name) {
+  @return toCSSVar(clr, $name);
+}
+
+@function fs($size) {
+  @return toCSSVar(fs, $size);
+}
+
+@function ff($family) {
+  @return toCSSVar(ff, $family);
+}
+
+@function fw($weight) {
+  @return toCSSVar(fw, $weight);
+}

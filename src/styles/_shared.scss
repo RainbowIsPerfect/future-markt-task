@@ -1,0 +1,38 @@
+@use "./functions" as f;
+
+.transition {
+  transition: all 0.25s ease-in-out;
+}
+
+.button {
+  @extend .transition;
+  font-weight: f.fw(semibold);
+  line-height: 1.3;
+  text-align: left;
+  outline: 1px solid f.clr(text);
+  outline-offset: -1px;
+  background-color: transparent;
+  position: relative;
+
+  &--colored {
+    color: f.clr(secondary);
+    background-color: f.clr(text);
+
+    &:hover,
+    &:focus-visible {
+      color: f.clr(text);
+      background-color: transparent;
+    }
+  }
+
+  &--transparent {
+    color: f.clr(text);
+    background-color: transparent;
+
+    &:hover,
+    &:focus-visible {
+      color: f.clr(secondary);
+      background-color: f.clr(text);
+    }
+  }
+}

@@ -1,0 +1,74 @@
+@use "sass:map";
+@use "./styles/" as *;
+@include reset;
+
+:root {
+  @each $name, $color in $colors {
+    --clr-#{$name}: #{$color};
+  }
+  @each $name, $fs in $font-sizes {
+    --fs-#{$name}: #{$fs};
+  }
+  @each $name, $ff in $font-families {
+    --ff-#{$name}: #{$ff};
+  }
+  @each $name, $fw in $font-weights {
+    --fw-#{$name}: #{$fw};
+  }
+}
+
+body {
+  min-height: 100vh;
+  background: url("./assets/bg.png") center top / cover no-repeat var(--clr-bg);
+  font-family: var(--ff-raleway);
+  font-size: fs(base);
+  color: var(--clr-text);
+  backdrop-filter: blur(15px);
+}
+
+#app {
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  overflow: hidden;
+  background-color: #133457de;
+}
+
+.container {
+  max-width: 1350px;
+  margin-inline: auto;
+  padding: 0 15px;
+}
+
+.button {
+  font-weight: fw(semibold);
+  line-height: 1.3;
+  text-align: left;
+  outline: 1px solid clr(text);
+  outline-offset: -1px;
+  background-color: transparent;
+  position: relative;
+
+  &--colored {
+    color: clr(secondary);
+    background-color: clr(text);
+
+    &:hover,
+    &:focus-visible {
+      color: clr(text);
+      background-color: transparent;
+    }
+  }
+
+  &--transparent {
+    color: clr(text);
+    background-color: transparent;
+
+    &:hover,
+    &:focus-visible {
+      color: clr(secondary);
+      background-color: clr(text);
+    }
+  }
+}
+
